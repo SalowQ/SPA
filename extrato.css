@@ -1,0 +1,27 @@
+.extrato {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.8fr;
+    grid-template-rows: repeat(5, auto);
+}
+
+.extrato_titulo {
+    grid-column: 1 / span 3;
+    justify-self: center;
+}
+
+.extrato_subtitulo-produto {
+    grid-column: 2;
+}
+
+.extrato_subtitulo-valor {
+    grid-column: 3;
+}
+
+.extrato_linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.extrato_linha--produto {
+    grid-column: 2;
+}

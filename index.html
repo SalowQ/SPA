@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto individual Newtab</title>
+    <link rel="stylesheet" href="../projeto1/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../projeto1/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho_conteudo">
+            <p class="logo"><img src="../projeto1/icon_logo.png" alt="Logotipo do site"></p>
+            <h1 class="cabecalho_titulo">Controle financeiro</h1>
+            <button class="cabecalho_menu" aria-label="Menu"><i></i></button>
+            <nav class="cabecalho_menu_desktop">
+                <a class="menu-desktop_link">Cadastro de transações</a>
+                <div class="linha-div"></div>
+                <a class="menu-desktop_link">Limpar dados</a>
+            </nav>
+        </div>
+    </header>
+    <nav class="menu-lateral">
+        <p class="menu-lateral_sair"><img src="../projeto1/close.png" alt="Fechar menu"></p>
+        <a class="menu-lateral_link menu-lateral_link--ativo">Cadastro de transações</a>
+        <a class="menu-lateral_link">Limpar dados</a>
+    </nav>
+    <main class="conteudo">
+        <form class="formulario-compra">
+            <h2 class="formulario_titulo">Nova transação</h2>
+            <label for="tipodetransacao" class="formulario-compra_titulos">Tipo de transação</label>
+            <select class="formulario-compra_inputs formulario-compra_inputs-compravenda" required>
+                <option value="compra">Compra</option>
+                <option value="venda">Venda</option>
+            </select>
+            <!--<input type="text" class="formulario-compra_inputs" required placeholder="Compra">-->
+
+            <label for="nomedamercadoria" class="formulario-compra_titulos">Nome da mercadoria</label>
+            <input type="text" class="formulario-compra_inputs" required placeholder="Produto">
+
+            <label for="valor" class="formulario-compra_titulos">Valor</label>
+            <input type="text" class="formulario-compra_inputs" required placeholder="R$ 0,00">
+
+            <input type="submit" class="formulario-compra_botao" value="Adicionar transação">
+        </form>
+        <!--<div class="linha-divisao"></div>-->
+        <section class="extrato">
+            <h2 class="extrato_titulo">Extrato de transações</h2>
+            <div class="extrato_subtitulo--produto"></div>
+            <p class="extrato_subtitulo--produto">Mercadoria</p>
+            <p class="extrato_subtitulo--valor">Valor</p>                
+            <ul class="extrato_operacao">
+                <li class="extrato_item">+</li>
+                <li class="extrato_item">-</li>
+                <li class="extrato_item">+</li>
+            </ul>
+            <ul class="extrato_mercadoria">
+                <li class="extrato_item">Lorem ipsum dolor blar bla</li>
+                <li class="extrato_item">Quis nostrud</li>
+                <li class="extrato_item">Lorem ipsum dolor</li>
+            </ul>
+            <ul class="extrato_valor">
+                <li class="extrato_item">R$ 12.999,99</li>
+                <li class="extrato_item">R$ 99,99</li>
+                <li class="extrato_item-">R$ 9,99</li>
+            </ul>
+            <div class="extrato_resultado--produto"></div>
+            <p class="extrato_resultado--produto">Total</p>
+            <p class="extrato_resultado--valor">R$ 12.909,99</p> 
+        </section>
+        
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

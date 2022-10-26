@@ -1,0 +1,347 @@
+@font-face {
+    font-family: 'icones';
+    src: url(../projeto1/icones.ttf);
+}
+
+:root {
+    --fonte-primaria: 'Lato';
+    --fonte-secundaria: 'icones';
+    --cor-primaria: #E5E5E5;
+    --cor-secundaria: #E0E0E0;
+    --cor-terciaria: #333333;
+}
+
+body {
+    font-family: 'Lato', 'icones', sans-serif;
+    color: var(--cor-primaria);
+}
+
+.cabecalho {
+    display: flex;
+    align-content: center;
+    background-color: var(--cor-secundaria);
+    padding: 0px 22px;
+}
+
+.cabecalho_menu_desktop {
+    display: none;
+}
+
+.cabecalho_conteudo {
+    height: 60px;
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho_titulo {
+    font-family: var(--fonte-primaria);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--cor-terciaria);
+}
+
+.cabecalho_menu i::before {
+    content: "\e904";
+    font-size: 24px;
+    color: var(--cor-terciaria);
+}
+
+.menu-lateral {
+    font-family: var(--fonte-primaria) ;
+    display: none;
+    position: absolute;
+    top: 0;
+    
+    transition: .25s;
+}
+
+.menu-lateral--ativo {
+    right: 0;
+    transition: .25s;
+
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: var(--cor-terciaria);
+    
+    height: 100%;
+    width: 85vw;
+}
+
+.menu-lateral_link--ativo {
+    width: 85vw;    
+    background-color: #C4C4C4;
+    color: #333333;
+    overflow: hidden;
+}
+
+.menu-lateral_sair {
+    align-items: left;
+    padding: 20px 75vw 25px 20px;
+}
+
+.menu-lateral_link {
+    text-align: right;
+    font-size: 16px;
+    width: 75vw;
+    padding: 10px 5vw;
+}
+
+@media screen and (min-width: 768px) {
+    .menu-lateral--ativo {
+        width: 35vw;
+    }
+
+    .menu-lateral_link--ativo {
+        width: 25vw;
+    }
+
+    .menu-lateral_sair {
+        padding-right: 30vw;
+    }
+}
+
+.formulario-compra {
+    font-family: var(--fonte-primaria);
+    display: flex;
+    flex-direction: column;
+    margin: 26px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.formulario_titulo {
+    display: none;
+}
+
+.formulario-compra_titulos {
+    margin-bottom: 5px;
+}
+
+.formulario-compra_inputs {
+    height: 30px;
+    border: 1px solid #979797;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 0 2px;
+}
+
+.formulario-compra_botao {
+    height: 32px;
+    background-color: #333333;
+    color: var(--cor-primaria);
+    border-radius: 4px;
+}
+
+.extrato {
+    font-family: var(--fonte-primaria);
+    border-top: 1px solid #979797;
+    padding-top: 40px;
+    margin: 0 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.8fr;
+    grid-template-areas: 
+        "extrato_titulo extrato_titulo extrato_titulo"
+        "extrato_operacao extrato_mercadoria extrato_valor"
+    ;
+}
+
+.extrato_titulo {
+    font-size: 18px;
+    font-weight: 700;
+    grid-area: extrato_titulo;
+    justify-self: center;
+    padding-bottom: 20px;
+}
+
+.extrato_subtitulo--produto {
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    text-align: start;
+    border-bottom: 1px solid #979797;
+    grid-row: 2;
+}
+
+.extrato_subtitulo--valor {
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    text-align: start;
+    border-bottom: 1px solid #979797;
+}
+
+.extrato_operacao {
+    grid-area: extrato_operacao;
+    grid-row: 3 / 6;
+    grid-column: 1;
+    text-align: center;
+}
+
+.extrato_mercadoria {
+    grid-area: extrato_mercadoria;
+    grid-row: 3 / 6;
+    grid-column: 2;
+}
+
+.extrato_valor {
+    grid-area: extrato_valor;
+    grid-row: 3 / 6;
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+.extrato_item {
+    height: 4vh;
+    padding: 1vh 0;
+    border-bottom: 1px solid #979797;
+}
+
+.extrato_resultado {
+    font-family: var(--fonte-primaria);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 0;
+    margin-top: 3px;
+    border-top: 1px solid #979797;
+}
+
+.extrato_resultado--produto {
+    text-align: start;
+}
+
+.extrato_resultado--valor {
+    text-align: end;
+}
+
+@media screen and (min-width: 768px) {
+    .formulario-compra {
+        border: 1px solid #979797;
+        border-radius: 4px;
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 0.5fr;
+        grid-template-rows: 1fr 15px 32px 1fr;
+        column-gap: 20px;
+        row-gap: 10px;
+        padding: 20px;
+    }
+
+    .formulario_titulo {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        justify-self: center;
+        padding-bottom: 20px;
+        grid-column: 1 / span 3;
+        text-align: center;
+    }
+
+    .formulario-compra_titulos {
+        grid-row: 2;
+    }
+
+    .formulario-compra_inputs {
+        grid-row: 3;
+    }
+
+    .formulario-compra_inputs-compravenda {
+        height: 100%;
+    }
+
+    .formulario-compra_botao {
+        grid-row: 4;
+        grid-column: 1 / span 3;
+        justify-self: end;
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    .extrato {
+        border: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cabecalho_titulo {
+        margin-right: 550px;
+    }
+    .cabecalho_menu {
+        display: none;
+    }
+
+    .cabecalho_menu_desktop {
+        display: flex;
+        flex-direction: row;
+        color: #333333;
+        background-color: #ffffff;
+        padding: 10px 10px;
+    }
+
+    .menu-desktop_link {
+        font-weight: 600;
+        padding: 0 10px;
+    }
+
+    .linha-div {
+        border-right: 1px solid #333333;
+    }
+
+    .menu-lateral_link {
+        padding: 0;
+        font-weight: 600;
+    }
+
+    .conteudo {
+        display: flex;
+        width: 1100px;
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .formulario-compra {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin: 50px 0 0 0;
+        gap: 0;
+    }
+
+    .formulario-compra_inputs {
+        height: 30px;
+    }
+
+    .formulario-compra_inputs-compravenda {
+        height: 32px;
+    }
+
+    .formulario-compra_botao {
+        width: 100%;
+        padding: 7.5px 0;
+        height: auto;
+    }
+
+    .extrato {
+        width: 700px;
+        padding-top: 70px;
+        margin: 0;
+    }
+    
+    .extrato_subtitulo {
+        padding: 0;
+    }
+
+    .extrato_item {
+        height: 2vh;
+        padding: 0;
+    }
+}
