@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../projeto1/style.css">
 </head>
 <body>
+    <!--cabeçalho contendo logo, título da página e menu/acesso ao menu-->
     <header class="cabecalho">
         <div class="cabecalho_conteudo">
             <p class="logo"><img src="../projeto1/icon_logo.png" alt="Logotipo do site"></p>
@@ -24,20 +25,23 @@
             </nav>
         </div>
     </header>
+    <!--menu lateral para mobile/tablet-->
     <nav class="menu-lateral">
         <p class="menu-lateral_sair"><img src="../projeto1/close.png" alt="Fechar menu"></p>
         <a class="menu-lateral_link menu-lateral_link--ativo">Cadastro de transações</a>
         <a class="menu-lateral_link">Limpar dados</a>
     </nav>
+    <!--conteúdo completo da página-->
     <main class="conteudo">
+        <!--formulário de compra, inserção de produtos e valores-->
         <form class="formulario-compra">
             <h2 class="formulario_titulo">Nova transação</h2>
+
             <label for="tipodetransacao" class="formulario-compra_titulos">Tipo de transação</label>
             <select class="formulario-compra_inputs formulario-compra_inputs-compravenda" required>
                 <option value="compra">Compra</option>
                 <option value="venda">Venda</option>
             </select>
-            <!--<input type="text" class="formulario-compra_inputs" required placeholder="Compra">-->
 
             <label for="nomedamercadoria" class="formulario-compra_titulos">Nome da mercadoria</label>
             <input type="text" class="formulario-compra_inputs" required placeholder="Produto">
@@ -47,32 +51,36 @@
 
             <input type="submit" class="formulario-compra_botao" value="Adicionar transação">
         </form>
-        <!--<div class="linha-divisao"></div>-->
+        <!--lista de extrato com produtos e valores inseridos, cada novo produto será uma nova ul com classe extrato_linha-->
         <section class="extrato">
             <h2 class="extrato_titulo">Extrato de transações</h2>
-            <div class="extrato_subtitulo--produto"></div>
-            <p class="extrato_subtitulo--produto">Mercadoria</p>
-            <p class="extrato_subtitulo--valor">Valor</p>                
-            <ul class="extrato_operacao">
-                <li class="extrato_item">+</li>
-                <li class="extrato_item">-</li>
-                <li class="extrato_item">+</li>
-            </ul>
-            <ul class="extrato_mercadoria">
-                <li class="extrato_item">Lorem ipsum dolor blar bla</li>
-                <li class="extrato_item">Quis nostrud</li>
-                <li class="extrato_item">Lorem ipsum dolor</li>
-            </ul>
-            <ul class="extrato_valor">
-                <li class="extrato_item">R$ 12.999,99</li>
-                <li class="extrato_item">R$ 99,99</li>
-                <li class="extrato_item-">R$ 9,99</li>
-            </ul>
-            <div class="extrato_resultado--produto"></div>
-            <p class="extrato_resultado--produto">Total</p>
-            <p class="extrato_resultado--valor">R$ 12.909,99</p> 
+            <div class="extrato_subtitulos">
+                <p>Mercadoria</p>
+                <p>Valor</p>
+            </div>                
+            <div class="extrato_conteudo">
+                    <ul class="extrato_linha">
+                        <li class="extrato_linha--operador">+</li>
+                        <li class="extrato_linha--produto">Lorum ipsem</li>
+                        <li class="extrato_linha--valor">R$ 12.999,99</li>
+                    </ul>
+                    <ul class="extrato_linha">
+                        <li class="extrato_linha--operador">-</li>
+                        <li class="extrato_linha--produto">blablabla</li>
+                        <li class="extrato_linha--valor">R$ 999,99</li>
+                    </ul>
+                    <ul class="extrato_linha">
+                        <li class="extrato_linha--operador">+</li>
+                        <li class="extrato_linha--produto">Lorum ipsem dolor</li>
+                        <li class="extrato_linha--valor">R$ 9,99</li>
+                    </ul>
+            </div>
+            <div class="extrato_resultados">
+                <p>Total</p>
+                <p>R$ 12.909,99</p>
+            </div>
+            <p class="extrato_saldo">[LUCRO]</p> 
         </section>
-        
     </main>
     <script src="index.js"></script>
 </body>

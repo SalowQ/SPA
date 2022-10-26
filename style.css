@@ -1,3 +1,4 @@
+/*chamadas base*/
 @font-face {
     font-family: 'icones';
     src: url(../projeto1/icones.ttf);
@@ -16,6 +17,7 @@ body {
     color: var(--cor-primaria);
 }
 
+/*cabeçalho contendo logo, título da página e menu/acesso ao menu*/
 .cabecalho {
     display: flex;
     align-content: center;
@@ -49,6 +51,7 @@ body {
     color: var(--cor-terciaria);
 }
 
+/*menu lateral para mobile/tablet*/
 .menu-lateral {
     font-family: var(--fonte-primaria) ;
     display: none;
@@ -90,6 +93,7 @@ body {
     padding: 10px 5vw;
 }
 
+/*adaptação de menu lateral para tablet*/
 @media screen and (min-width: 768px) {
     .menu-lateral--ativo {
         width: 35vw;
@@ -104,6 +108,7 @@ body {
     }
 }
 
+/* formulário de compra, inserção de produtos e valores*/
 .formulario-compra {
     font-family: var(--fonte-primaria);
     display: flex;
@@ -137,6 +142,7 @@ body {
     border-radius: 4px;
 }
 
+/*lista de extrato com produtos e valores inseridos*/
 .extrato {
     font-family: var(--fonte-primaria);
     border-top: 1px solid #979797;
@@ -145,84 +151,68 @@ body {
     font-size: 14px;
     font-weight: 400;
     color: #333333;
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 0.8fr;
-    grid-template-areas: 
-        "extrato_titulo extrato_titulo extrato_titulo"
-        "extrato_operacao extrato_mercadoria extrato_valor"
-    ;
+    display: flex;
+    flex-direction: column;
 }
 
 .extrato_titulo {
     font-size: 18px;
     font-weight: 700;
-    grid-area: extrato_titulo;
-    justify-self: center;
+    text-align: center;
     padding-bottom: 20px;
 }
 
-.extrato_subtitulo--produto {
+.extrato_subtitulos {
     font-size: 14px;
     font-weight: 700;
-    padding-bottom: 10px;
-    text-align: start;
+
+    display: flex;
+    justify-content: space-between;
+    
     border-bottom: 1px solid #979797;
-    grid-row: 2;
+    padding: 0 10px 0.5em 10%;
 }
 
-.extrato_subtitulo--valor {
-    font-size: 14px;
-    font-weight: 700;
-    padding-bottom: 10px;
-    text-align: start;
-    border-bottom: 1px solid #979797;
+.extrato_conteudo {
+    display: flex;
+    flex-direction: column;
 }
 
-.extrato_operacao {
-    grid-area: extrato_operacao;
-    grid-row: 3 / 6;
-    grid-column: 1;
+.extrato_linha {
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    border-bottom: 1px solid #979797;
+    padding: 0.5em 10px 0.5em 0;
+}
+
+.extrato_linha--operador {
     text-align: center;
 }
 
-.extrato_mercadoria {
-    grid-area: extrato_mercadoria;
-    grid-row: 3 / 6;
-    grid-column: 2;
-}
-
-.extrato_valor {
-    grid-area: extrato_valor;
-    grid-row: 3 / 6;
-    grid-column: 3;
-    display: flex;
-    flex-direction: column;
+.extrato_linha--valor {
     text-align: end;
 }
 
-.extrato_item {
-    height: 4vh;
-    padding: 1vh 0;
-    border-bottom: 1px solid #979797;
-}
-
-.extrato_resultado {
-    font-family: var(--fonte-primaria);
+.extrato_resultados {
     font-size: 14px;
     font-weight: 700;
-    padding: 10px 0;
+
+    display: flex;
+    justify-content: space-between;
+    
     margin-top: 3px;
     border-top: 1px solid #979797;
+    padding: 0.5em 10px 0.3em 10%;
 }
 
-.extrato_resultado--produto {
-    text-align: start;
-}
-
-.extrato_resultado--valor {
+.extrato_saldo {
+    font-size: 10px;
+    font-weight: 400;
     text-align: end;
+    padding-right: 10px;
 }
 
+/*adaptação de extrato eformulário de compra para tablet*/
 @media screen and (min-width: 768px) {
     .formulario-compra {
         border: 1px solid #979797;
@@ -268,8 +258,21 @@ body {
     .extrato {
         border: 0;
     }
+
+    .extrato_subtitulos {
+        padding-left:5%;
+    }
+
+    .extrato_linha {
+        grid-template-columns: 5% 65% 30%;
+    }
+
+    .extrato_resultados {
+        padding-left: 5%;
+    }
 }
 
+/*adaptação para desktop*/
 @media screen and (min-width: 1024px) {
     .cabecalho_titulo {
         margin-right: 550px;
@@ -334,14 +337,5 @@ body {
         width: 700px;
         padding-top: 70px;
         margin: 0;
-    }
-    
-    .extrato_subtitulo {
-        padding: 0;
-    }
-
-    .extrato_item {
-        height: 2vh;
-        padding: 0;
     }
 }
