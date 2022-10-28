@@ -19,37 +19,37 @@
             <h1 class="cabecalho_titulo">Controle financeiro</h1>
             <button class="cabecalho_menu" aria-label="Menu"><i></i></button>
             <nav class="cabecalho_menu_desktop">
-                <a class="menu-desktop_link">Cadastro de transações</a>
-                <div class="linha-div"></div>
-                <a class="menu-desktop_link">Limpar dados</a>
+                <a class="menu_desktop_link">Cadastro de transações</a>
+                <div class="linha_div"></div>
+                <a class="menu_desktop_link">Limpar dados</a>
             </nav>
         </div>
     </header>
     <!--menu lateral para mobile/tablet-->
-    <nav class="menu-lateral">
-        <p class="menu-lateral_sair"><img src="../projeto1/close.png" alt="Fechar menu"></p>
-        <a class="menu-lateral_link menu-lateral_link--ativo">Cadastro de transações</a>
-        <a class="menu-lateral_link">Limpar dados</a>
+    <nav class="menu_lateral">
+        <p class="menu_lateral_sair"><img src="../projeto1/close.png" alt="Fechar menu"></p>
+        <a class="menu_lateral_link menu_lateral_link_ativo">Cadastro de transações</a>
+        <a class="menu_lateral_link">Limpar dados</a>
     </nav>
     <!--conteúdo completo da página-->
     <main class="pagina_conteudo">
         <!--formulário de compra, inserção de produtos e valores-->
-        <form class="formulario-compra">
+        <form class="formulario_compra">
             <h2 class="formulario_titulo">Nova transação</h2>
 
-            <label for="tipodetransacao" class="formulario-compra_titulos">Tipo de transação</label>
-            <select class="formulario-compra_inputs formulario-compra_inputs-compravenda" required>
+            <label for="tipodetransacao" class="formulario_compra_titulos">Tipo de transação</label>
+            <select class="formulario_compra_inputs formulario_compra_inputs_compravenda" required>
                 <option value="compra">Compra</option>
                 <option value="venda">Venda</option>
             </select>
 
-            <label for="nomedamercadoria" class="formulario-compra_titulos">Nome da mercadoria</label>
-            <input type="text" class="formulario-compra_inputs" required placeholder="Produto">
+            <label for="nomedamercadoria" class="formulario_compra_titulos">Nome da mercadoria</label>
+            <input type="text" class="formulario_compra_inputs" required placeholder="Produto">
 
-            <label for="valor" class="formulario-compra_titulos">Valor</label>
-            <input type="text" class="formulario-compra_inputs" required placeholder="R$ 0,00">
+            <label for="valor" class="formulario_compra_titulos">Valor</label>
+            <input type="text" class="formulario_compra_inputs" required placeholder="R$ 0,00">
 
-            <input type="submit" class="formulario-compra_botao" value="Adicionar transação">
+            <input type="submit" class="formulario_compra_botao" value="Adicionar transação">
         </form>
         <!--lista de extrato com produtos e valores inseridos, cada novo produto será uma nova ul com classe extrato_linha-->
         <section class="extrato">
@@ -60,19 +60,19 @@
             </div>                
             <div class="extrato_conteudo">
                     <ul class="extrato_linha">
-                        <li class="extrato_linha--operador">+</li>
-                        <li class="extrato_linha--produto">Lorum ipsem</li>
-                        <li class="extrato_linha--valor">R$ 12.999,99</li>
+                        <li class="extrato_linha_operador">+</li>
+                        <li class="extrato_linha_produto">Lorum ipsem</li>
+                        <li class="extrato_linha_valor">R$ 12.999,99</li>
                     </ul>
                     <ul class="extrato_linha">
-                        <li class="extrato_linha--operador">-</li>
-                        <li class="extrato_linha--produto">blablabla</li>
-                        <li class="extrato_linha--valor">R$ 999,99</li>
+                        <li class="extrato_linha_operador">-</li>
+                        <li class="extrato_linha_produto">blablabla</li>
+                        <li class="extrato_linha_valor">R$ 999,99</li>
                     </ul>
                     <ul class="extrato_linha">
-                        <li class="extrato_linha--operador">+</li>
-                        <li class="extrato_linha--produto">Lorum ipsem dolor</li>
-                        <li class="extrato_linha--valor">R$ 9,99</li>
+                        <li class="extrato_linha_operador">+</li>
+                        <li class="extrato_linha_produto">Lorum ipsem dolor</li>
+                        <li class="extrato_linha_valor">R$ 9,99</li>
                     </ul>
             </div>
             <div class="extrato_resultados">

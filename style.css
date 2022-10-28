@@ -52,7 +52,7 @@ body {
 }
 
 /*menu lateral para mobile/tablet*/
-.menu-lateral {
+.menu_lateral {
     font-family: var(--fonte-primaria) ;
     display: none;
     position: absolute;
@@ -61,7 +61,7 @@ body {
     transition: .25s;
 }
 
-.menu-lateral--ativo {
+.menu_lateral_ativo {
     right: 0;
     transition: .25s;
 
@@ -74,19 +74,19 @@ body {
     width: 85vw;
 }
 
-.menu-lateral_link--ativo {
+.menu_lateral_link_ativo {
     width: 85vw;    
     background-color: #C4C4C4;
     color: #333333;
     overflow: hidden;
 }
 
-.menu-lateral_sair {
+.menu_lateral_sair {
     align-items: left;
     padding: 20px 75vw 25px 20px;
 }
 
-.menu-lateral_link {
+.menu_lateral_link {
     text-align: right;
     font-size: 16px;
     width: 75vw;
@@ -95,21 +95,21 @@ body {
 
 /*adaptação de menu lateral para tablet*/
 @media screen and (min-width: 768px) {
-    .menu-lateral--ativo {
+    .menu_lateral_ativo {
         width: 35vw;
     }
 
-    .menu-lateral_link--ativo {
+    .menu_lateral_link_ativo {
         width: 25vw;
     }
 
-    .menu-lateral_sair {
+    .menu_lateral_sair {
         padding-right: 30vw;
     }
 }
 
 /* formulário de compra, inserção de produtos e valores*/
-.formulario-compra {
+.formulario_compra {
     font-family: var(--fonte-primaria);
     display: flex;
     flex-direction: column;
@@ -123,11 +123,11 @@ body {
     display: none;
 }
 
-.formulario-compra_titulos {
+.formulario_compra_titulos {
     margin-bottom: 5px;
 }
 
-.formulario-compra_inputs {
+.formulario_compra_inputs {
     height: 30px;
     border: 1px solid #979797;
     border-radius: 4px;
@@ -135,15 +135,15 @@ body {
     padding: 0 2px;
 }
 
-.formulario-compra_inputs::placeholder {
+.formulario_compra_inputs::placeholder {
     padding-left: 5px;
 }
 
-.formulario-compra_inputs-compravenda {
+.formulario_compra_inputs_compravenda {
     height: 32px;
 }
 
-.formulario-compra_botao {
+.formulario_compra_botao {
     height: 32px;
     background-color: #333333;
     color: var(--cor-primaria);
@@ -193,11 +193,11 @@ body {
     padding: 0.5em 10px 0.5em 0;
 }
 
-.extrato_linha--operador {
+.extrato_linha_operador {
     text-align: center;
 }
 
-.extrato_linha--valor {
+.extrato_linha_valor {
     text-align: end;
 }
 
@@ -222,7 +222,7 @@ body {
 
 /*adaptação de extrato eformulário de compra para tablet*/
 @media screen and (min-width: 768px) {
-    .formulario-compra {
+    .formulario_compra {
         border: 1px solid #979797;
         border-radius: 4px;
         display: grid;
@@ -243,15 +243,15 @@ body {
         text-align: center;
     }
 
-    .formulario-compra_titulos {
+    .formulario_compra_titulos {
         grid-row: 2;
     }
 
-    .formulario-compra_inputs {
+    .formulario_compra_inputs {
         grid-row: 3;
     }
 
-    .formulario-compra_botao {
+    .formulario_compra_botao {
         grid-row: 4;
         grid-column: 1 / span 3;
         justify-self: end;
@@ -300,16 +300,16 @@ body {
         padding: 10px 10px;
     }
 
-    .menu-desktop_link {
+    .menu_desktop_link {
         font-weight: 600;
         padding: 0 10px;
     }
 
-    .linha-div {
+    .linha_div {
         border-right: 1px solid #333333;
     }
 
-    .menu-lateral_link {
+    .menu_lateral_link {
         padding: 0;
         font-weight: 600;
     }
@@ -323,7 +323,7 @@ body {
         gap: 20px;
     }
 
-    .formulario-compra {
+    .formulario_compra {
         display: flex;
         flex-direction: column;
         width: 400px;
@@ -331,11 +331,11 @@ body {
         gap: 0;
     }
 
-    .formulario-compra_inputs:not(.formulario-compra_inputs-compravenda) {
+    .formulario_compra_inputs:not(.formulario_compra_inputs_compravenda) {
         height: 30px;
     }
 
-    .formulario-compra_botao {
+    .formulario_compra_botao {
         width: 100%;
         padding: 7.5px 0;
         height: auto;
