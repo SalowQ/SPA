@@ -1,7 +1,7 @@
 /*chamadas base*/
 @font-face {
     font-family: 'icones';
-    src: url(../projeto1/icones.ttf);
+    src: url(icones.ttf);
 }
 
 :root {
