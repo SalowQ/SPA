@@ -1,19 +1,13 @@
 /*chamadas base*/
-@font-face {
-    font-family: 'icones';
-    src: url(icones.ttf);
-}
-
 :root {
     --fonte-primaria: 'Lato';
-    --fonte-secundaria: 'icones';
     --cor-primaria: #E5E5E5;
     --cor-secundaria: #E0E0E0;
     --cor-terciaria: #333333;
 }
 
 body {
-    font-family: 'Lato', 'icones', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: var(--cor-primaria);
     margin: 0;
 }
@@ -46,10 +40,10 @@ body {
     color: var(--cor-terciaria);
 }
 
-.cabecalho_menu i::before {
-    content: "\e904";
-    font-size: 24px;
-    color: var(--cor-terciaria);
+.cabecalho_menu {
+    border: 0;
+    padding: 0;
+    background-color: var(--cor-secundaria);
 }
 
 /*menu lateral para mobile/tablet*/
