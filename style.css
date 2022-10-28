@@ -15,6 +15,7 @@
 body {
     font-family: 'Lato', 'icones', sans-serif;
     color: var(--cor-primaria);
+    margin: 0;
 }
 
 /*cabeçalho contendo logo, título da página e menu/acesso ao menu*/
@@ -181,6 +182,10 @@ body {
     padding: 0 10px 0.5em 10%;
 }
 
+.extrato_subtitulos_elemento, .extrato_resultados_elemento{
+    margin: 0;
+}
+
 .extrato_conteudo {
     display: flex;
     flex-direction: column;
@@ -195,10 +200,16 @@ body {
 
 .extrato_linha_operador {
     text-align: center;
+    margin: 0;
+}
+
+.extrato_linha_produto {
+    margin: 0;
 }
 
 .extrato_linha_valor {
     text-align: end;
+    margin: 0;
 }
 
 .extrato_resultados {
@@ -218,6 +229,7 @@ body {
     font-weight: 400;
     text-align: end;
     padding-right: 10px;
+    margin: 0;
 }
 
 /*adaptação de extrato eformulário de compra para tablet*/

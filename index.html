@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../SPA/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!--cabeçalho contendo logo, título da página e menu/acesso ao menu-->
     <header class="cabecalho">
         <div class="cabecalho_conteudo">
-            <p class="logo"><img src="../projeto1/icon_logo.png" alt="Logotipo do site"></p>
+            <p class="logo"><img src="icon_logo.png" alt="Logotipo do site"></p>
             <h1 class="cabecalho_titulo">Controle financeiro</h1>
             <button class="cabecalho_menu" aria-label="Menu"><i></i></button>
             <nav class="cabecalho_menu_desktop">
@@ -55,29 +55,29 @@
         <section class="extrato">
             <h2 class="extrato_titulo">Extrato de transações</h2>
             <div class="extrato_subtitulos">
-                <p>Mercadoria</p>
-                <p>Valor</p>
+                <p class="extrato_subtitulos_elemento">Mercadoria</p>
+                <p class="extrato_subtitulos_elemento">Valor</p>
             </div>                
             <div class="extrato_conteudo">
-                    <ul class="extrato_linha">
-                        <li class="extrato_linha_operador">+</li>
-                        <li class="extrato_linha_produto">Lorum ipsem</li>
-                        <li class="extrato_linha_valor">R$ 12.999,99</li>
-                    </ul>
-                    <ul class="extrato_linha">
-                        <li class="extrato_linha_operador">-</li>
-                        <li class="extrato_linha_produto">blablabla</li>
-                        <li class="extrato_linha_valor">R$ 999,99</li>
-                    </ul>
-                    <ul class="extrato_linha">
-                        <li class="extrato_linha_operador">+</li>
-                        <li class="extrato_linha_produto">Lorum ipsem dolor</li>
-                        <li class="extrato_linha_valor">R$ 9,99</li>
-                    </ul>
+                    <div class="extrato_linha">
+                        <p class="extrato_linha_operador">+</p>
+                        <p class="extrato_linha_produto">Lorum ipsem</p>
+                        <p class="extrato_linha_valor">R$ 12.999,99</p>
+                    </div>
+                    <div class="extrato_linha">
+                        <p class="extrato_linha_operador">-</p>
+                        <p class="extrato_linha_produto">blablabla</p>
+                        <p class="extrato_linha_valor">R$ 999,99</p>
+                    </div>
+                    <div class="extrato_linha">
+                        <p class="extrato_linha_operador">+</p>
+                        <p class="extrato_linha_produto">Lorum ipsem dolor</p>
+                        <p class="extrato_linha_valor">R$ 9,99</p>
+                    </div>
             </div>
             <div class="extrato_resultados">
-                <p>Total</p>
-                <p>R$ 12.909,99</p>
+                <p class="extrato_resultados_elemento">Total</p>
+                <p class="extrato_resultados_elemento">R$ 12.909,99</p>
             </div>
             <p class="extrato_saldo">[LUCRO]</p> 
         </section>
