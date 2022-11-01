@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto individual Newtab</title>
-    <link rel="stylesheet" href="../projeto1/reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -37,17 +36,17 @@
         <form class="formulario_compra">
             <h2 class="formulario_titulo">Nova transação</h2>
 
-            <label for="tipodetransacao" class="formulario_compra_titulos">Tipo de transação</label>
-            <select class="formulario_compra_inputs formulario_compra_inputs_compravenda" required>
+            <label for="tipo_transacao" class="formulario_compra_titulos">Tipo de transação</label>
+            <select class="formulario_compra_inputs formulario_compra_inputs_compravenda" id="tipo_transacao" required>
                 <option value="compra">Compra</option>
                 <option value="venda">Venda</option>
             </select>
 
-            <label for="nomedamercadoria" class="formulario_compra_titulos">Nome da mercadoria</label>
-            <input type="text" class="formulario_compra_inputs" required placeholder="Produto">
+            <label for="nome_mercadoria" class="formulario_compra_titulos">Nome da mercadoria</label>
+            <input type="text" class="formulario_compra_inputs" id="nome_mercadoria" required placeholder="Produto">
 
             <label for="valor" class="formulario_compra_titulos">Valor</label>
-            <input type="text" class="formulario_compra_inputs" required placeholder="R$ 0,00">
+            <input type="number" class="formulario_compra_inputs" id="valor" required placeholder="R$ 0,00">
 
             <input type="submit" class="formulario_compra_botao" value="Adicionar transação">
         </form>
