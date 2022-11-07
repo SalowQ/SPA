@@ -187,7 +187,7 @@ body {
 
 .extrato_linha {
     display: grid;
-    grid-template-columns: 10% 60% 30%;
+    grid-template-columns: 10% 30% 60%;
     border-bottom: 1px solid #979797;
     padding: 0.5em 10px 0.5em 0;
 }
@@ -275,7 +275,7 @@ body {
     }
 
     .extrato_linha {
-        grid-template-columns: 5% 65% 30%;
+        grid-template-columns: 5% 30% 65%;
     }
 
     .extrato_resultados {
