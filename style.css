@@ -50,7 +50,7 @@ body {
 .menu_lateral {
     font-family: var(--fonte-primaria) ;
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     
     transition: .25s;
