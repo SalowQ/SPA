@@ -11,8 +11,12 @@ botaoFecharMenu.addEventListener('click', () => {
     menu.classList.toggle('menu_lateral_ativo')
 })
 
-// clicar no botão
+// clicar no botão + clicar em limpar
 var botaoAdicionar = document.querySelector(".formulario_compra_botao");
+
+var botaoLimpar = document.querySelector("#limpa_dados");
+
+//criar tabela a partir dos produtos no local storage
 
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
@@ -27,8 +31,29 @@ botaoAdicionar.addEventListener("click", function(event){
 
     conteudo.appendChild(produtoDiv);
 
+    adicionaStorage (produto)
+
     form.reset();
 })
+
+botaoLimpar.addEventListener("click", function(event){
+    localStorage.clear();
+})
+
+function adicionaStorage (produto){
+        const storage = window.localStorage.getItem('lista');
+    
+        if(storage === null) {
+            window.localStorage.setItem('lista', JSON.stringify([produto]));
+        } else {
+            const pegarListaAtual = window.localStorage.getItem('lista');
+            const listaAtual = JSON.parse(pegarListaAtual);
+    
+            listaAtual.push(produto);
+    
+            window.localStorage.setItem('lista', JSON.stringify(listaAtual));
+        }
+    };
 
 function obtemProdutoDoFormulario(form){
     var produto = {
@@ -39,6 +64,16 @@ function obtemProdutoDoFormulario(form){
 
     return produto;
 }
+
+/*function obtemProdutoDoLocalStorage(form){
+    var linha = JSON.parse(localStorage.getItem('items'))
+    linha.forEach((produto)>=
+    montaLinha(produto))
+    [tipo:+, nome: sdjis, valor: 14]
+    [tipo: -, nome: cu, valor: 50]
+
+    return produto;
+}*/
 
 function montaLinha(produto){
     var produtoDiv = document.createElement("div");
@@ -57,6 +92,8 @@ function montaLinha(produto){
     valorP.textContent = "R$ " + produto.valor;
 
     return produtoDiv;
+
+    
 }
 
 function montaP(dado, classe){
