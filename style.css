@@ -218,7 +218,7 @@ body {
     padding: 0.5em 10px 0.3em 10%;
 }
 
-.extrato_saldo {
+#extrato_saldo {
     font-size: 10px;
     font-weight: 400;
     text-align: end;
@@ -309,6 +309,7 @@ body {
     .menu_desktop_link {
         font-weight: 600;
         padding: 0 10px;
+        cursor: pointer;
     }
 
     .linha_div {
@@ -345,6 +346,7 @@ body {
         width: 100%;
         padding: 7.5px 0;
         height: auto;
+        cursor: pointer;
     }
 
     .extrato {
@@ -352,4 +354,8 @@ body {
         padding-top: 70px;
         margin: 0;
     }
+}
+
+.nao_existe {
+    display: none;
 }

@@ -17,7 +17,23 @@ var botaoAdicionar = document.querySelector(".formulario_compra_botao");
 var botaoLimpar = document.querySelector("#limpa_dados");
 
 //criar tabela a partir dos produtos no local storage
+window.onload = function criaTabelaInicial() {
+    const storage = window.localStorage.getItem('lista');
+    if (storage != null) {
+        const listaAtual = JSON.parse(storage);
 
+        listaAtual.forEach(produto => {
+        var produtoDiv = montaLinha(produto);
+        var conteudo = document.querySelector(".extrato_conteudo");
+        conteudo.appendChild(produtoDiv);
+        var mensagem = document.getElementById("mensagem_extrato");
+        mensagem.classList.add("nao_existe");
+        contaSaldo();
+        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
+    });        
+}}
+
+//cria tabela a partir do formulário
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
 
@@ -25,35 +41,83 @@ botaoAdicionar.addEventListener("click", function(event){
 
     var produto = obtemProdutoDoFormulario(form);
 
-    var produtoDiv = montaLinha(produto);
+    if(produto.nome.length != 0 && produto.valor != 0){
 
-    var conteudo = document.querySelector(".extrato_conteudo");
+        var produtoDiv = montaLinha(produto);
 
-    conteudo.appendChild(produtoDiv);
+        var conteudo = document.querySelector(".extrato_conteudo");
 
-    adicionaStorage (produto)
+        conteudo.appendChild(produtoDiv);
 
-    form.reset();
-})
+        adicionaStorage (produto, 'lista');
+
+        form.reset();
+
+        var mensagem = document.getElementById("mensagem_extrato");
+        mensagem.classList.add("nao_existe");
+        } else {
+            alert("Por favor, preencha todos os campos!")
+        }
+    }
+)
 
 botaoLimpar.addEventListener("click", function(event){
     localStorage.clear();
-})
+    window.location.reload();
+    alert("Produtos apagados com sucesso!")
+    }
+)
 
-function adicionaStorage (produto){
-        const storage = window.localStorage.getItem('lista');
-    
-        if(storage === null) {
-            window.localStorage.setItem('lista', JSON.stringify([produto]));
+function adicionaStorage (produto, lista){
+    const storage = window.localStorage.getItem(lista);
+
+    if(storage === null) {
+        window.localStorage.setItem(lista, JSON.stringify([produto]));
+        contaSaldo();
+        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
+    } else {
+        const listaAtual = JSON.parse(storage);
+ 
+        listaAtual.push(produto);
+
+        window.localStorage.setItem(lista, JSON.stringify(listaAtual));
+         contaSaldo();
+        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
+    }
+}    
+
+function contaSaldo(){
+    const storage = window.localStorage.getItem('lista');
+    const listaAtual = JSON.parse(storage);
+    var saldo = 0;
+    var total = document.getElementById('extrato_resultado_total');
+
+    for (var i = 0; i < listaAtual.length; i++){
+        if(listaAtual[i].tipo == 'compra'){
+            saldo = saldo + listaAtual[i].valor;
         } else {
-            const pegarListaAtual = window.localStorage.getItem('lista');
-            const listaAtual = JSON.parse(pegarListaAtual);
-    
-            listaAtual.push(produto);
-    
-            window.localStorage.setItem('lista', JSON.stringify(listaAtual));
+            saldo = saldo - listaAtual[i].valor
         }
-    };
+    }
+
+    localStorage.setItem('saldo', saldo);
+    total.textContent = saldo.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
+
+function lucroOuPrejuizo(saldo){
+    if(saldo > 0){
+        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
+        lucroOuPrejuizo.textContent = '[LUCRO]'
+    }
+    if(saldo < 0){
+        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
+        lucroOuPrejuizo.textContent = '[PREJUÍZO]'
+    }
+    if(saldo == 0){
+        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
+        lucroOuPrejuizo.textContent = ' '
+    }
+}
 
 function obtemProdutoDoFormulario(form){
     var produto = {
@@ -64,16 +128,6 @@ function obtemProdutoDoFormulario(form){
 
     return produto;
 }
-
-/*function obtemProdutoDoLocalStorage(form){
-    var linha = JSON.parse(localStorage.getItem('items'))
-    linha.forEach((produto)>=
-    montaLinha(produto))
-    [tipo:+, nome: sdjis, valor: 14]
-    [tipo: -, nome: cu, valor: 50]
-
-    return produto;
-}*/
 
 function montaLinha(produto){
     var produtoDiv = document.createElement("div");
@@ -89,11 +143,9 @@ function montaLinha(produto){
 
     operadorP.textContent = compraVenda(produto.tipo);
     produtoP.textContent = produto.nome;
-    valorP.textContent = "R$ " + produto.valor;
+    valorP.textContent = produto.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
     return produtoDiv;
-
-    
 }
 
 function montaP(dado, classe){

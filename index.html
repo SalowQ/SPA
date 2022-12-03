@@ -28,7 +28,7 @@
     <nav class="menu_lateral">
         <p class="menu_lateral_sair"><img src="close.png" alt="Fechar menu"></p>
         <a class="menu_lateral_link menu_lateral_link_ativo">Cadastro de transações</a>
-        <a class="menu_lateral_link">Limpar dados</a>
+        <a class="menu_lateral_link" href="index.html">Limpar dados</a>
     </nav>
     <!--conteúdo completo da página-->
     <main class="pagina_conteudo">
@@ -58,7 +58,8 @@
                 <p class="extrato_subtitulos_elemento">Valor</p>
             </div>                
             <div class="extrato_conteudo">
-                    <div class="extrato_linha">
+                <div id="mensagem_extrato">Não há transações cadastradas.</div>
+                    <!--<div class="extrato_linha">
                         <p class="extrato_linha_operador">+</p>
                         <p class="extrato_linha_produto">Lorum ipsem lamet a bla bla bla jfojd sjdod sjod</p>
                         <p class="extrato_linha_valor">R$ 12.999,99</p>
@@ -72,13 +73,13 @@
                         <p class="extrato_linha_operador">+</p>
                         <p class="extrato_linha_produto">Lorum ipsem dolor</p>
                         <p class="extrato_linha_valor">R$ 9,99</p>
-                    </div>
+                    </div>-->
             </div>
             <div class="extrato_resultados">
                 <p class="extrato_resultados_elemento">Total</p>
-                <p class="extrato_resultados_elemento">R$ 12.909,99</p>
+                <p class="extrato_resultados_elemento" id="extrato_resultado_total">R$ 00,00</p>
             </div>
-            <p class="extrato_saldo">[LUCRO]</p> 
+            <p id="extrato_saldo"></p> 
         </section>
     </main>
     <script src="index.js"></script>
