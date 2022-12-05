@@ -18,18 +18,13 @@
             <h1 class="cabecalho_titulo">Controle financeiro</h1>
             <button class="cabecalho_menu" aria-label="Menu"><img src="icone_menu.png" alt="Símbolo do menu"></button>
             <nav class="cabecalho_menu_desktop">
-                <a class="menu_desktop_link">Cadastro de transações</a>
+                <p class="menu_lateral_sair"><img src="close.png" alt="Fechar menu"></p>
+                <a class="menu_desktop_link" id="cadastro_transacoes">Cadastro de transações</a>
                 <div class="linha_div"></div>
                 <a class="menu_desktop_link" id="limpa_dados">Limpar dados</a>
             </nav>
         </div>
     </header>
-    <!--menu lateral para mobile/tablet-->
-    <nav class="menu_lateral">
-        <p class="menu_lateral_sair"><img src="close.png" alt="Fechar menu"></p>
-        <a class="menu_lateral_link menu_lateral_link_ativo">Cadastro de transações</a>
-        <a class="menu_lateral_link" href="index.html">Limpar dados</a>
-    </nav>
     <!--conteúdo completo da página-->
     <main class="pagina_conteudo">
         <!--formulário de compra, inserção de produtos e valores-->
@@ -46,7 +41,7 @@
             <input type="text" class="formulario_compra_inputs" id="nome_mercadoria" required placeholder="Produto">
 
             <label for="valor" class="formulario_compra_titulos">Valor</label>
-            <input type="number" class="formulario_compra_inputs" id="valor" required placeholder="R$ 0,00">
+            <input type="text" class="formulario_compra_inputs" id="valor" required placeholder="R$ 0,00" onkeypress="mascaraValor(event)">
 
             <input type="submit" class="formulario_compra_botao" value="Adicionar transação">
         </form>
@@ -83,5 +78,6 @@
         </section>
     </main>
     <script src="index.js"></script>
+    <script src="Inputmask-5.x/dist/inputmask.js"></script>
 </body>
 </html>

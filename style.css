@@ -47,60 +47,34 @@ body {
 }
 
 /*menu lateral para mobile/tablet*/
-.menu_lateral {
-    font-family: var(--fonte-primaria) ;
-    display: none;
-    position: fixed;
-    top: 0;
-    
-    transition: .25s;
+.menu_desktop_link {
+    padding: 1vh 3vw 1vh 3vw;
+}
+
+/*.menu_lateral_link_ativo {    
+    background-color: #C4C4C4;
+    color: #333333;
+    overflow: hidden;
+    text-align: right;
+}*/
+
+.menu_lateral_sair {
+    align-items: left;
+    padding: 1vh 75vw 1vh 0;
 }
 
 .menu_lateral_ativo {
     right: 0;
+    top: 0;
+    height: 100%;
+    width: 85vw;
     transition: .25s;
-
+    
+    position: absolute;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    background-color: var(--cor-terciaria);
-    
-    height: 100%;
-    width: 85vw;
-}
-
-.menu_lateral_link_ativo {
-    width: 85vw;    
-    background-color: #C4C4C4;
-    color: #333333;
-    overflow: hidden;
-}
-
-.menu_lateral_sair {
-    align-items: left;
-    padding: 20px 75vw 25px 20px;
-}
-
-.menu_lateral_link {
-    text-align: right;
-    font-size: 16px;
-    width: 75vw;
-    padding: 10px 5vw;
-}
-
-/*adaptação de menu lateral para tablet*/
-@media screen and (min-width: 768px) {
-    .menu_lateral_ativo {
-        width: 35vw;
-    }
-
-    .menu_lateral_link_ativo {
-        width: 25vw;
-    }
-
-    .menu_lateral_sair {
-        padding-right: 30vw;
-    }
+    background-color: var(--cor-terciaria);        
 }
 
 /* formulário de compra, inserção de produtos e valores*/
@@ -321,6 +295,10 @@ body {
         font-weight: 600;
     }
 
+    .menu_lateral_sair {
+        display: none;
+    }
+
     .pagina_conteudo {
         display: flex;
         max-width: 1100px;
@@ -356,6 +334,16 @@ body {
     }
 }
 
+/* comentário quando não há nenhuma transação */
 .nao_existe {
     display: none;
+}
+
+#mensagem_extrato {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13pt;
+
+    padding: 1vh 0 1vh 0;
+    border-bottom: 1px solid #979797;
 }
