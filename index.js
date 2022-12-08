@@ -128,16 +128,14 @@ function contaSaldo(){
 }
 
 function lucroOuPrejuizo(saldo){
+    var lucroOuPrejuizo = document.getElementById('extrato_saldo');
     if(saldo > 0){
-        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
         lucroOuPrejuizo.textContent = '[LUCRO]'
     }
     if(saldo < 0){
-        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
         lucroOuPrejuizo.textContent = '[PREJUÍZO]'
     }
     if(saldo == 0){
-        var lucroOuPrejuizo = document.getElementById('extrato_saldo');
         lucroOuPrejuizo.textContent = ' '
     }
 }
