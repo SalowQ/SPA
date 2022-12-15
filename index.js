@@ -12,22 +12,26 @@ botaoFecharMenu.addEventListener('click', () => {
 })
 
 //criar tabela a partir dos produtos no local storage
-window.onload = function criaTabelaInicial() {
-    const storage = window.localStorage.getItem('lista');
-    if (storage != null) {
-        const listaAtual = JSON.parse(storage);
+const storage = localStorage.getItem('lista');
+const listaAtual = JSON.parse(storage);
+const total = document.getElementById('extrato_resultado_total');
+const saldoRaw = localStorage.getItem('saldo');
+const saldo = JSON.parse(saldoRaw);
+if(saldo != null) {
+    total.textContent = saldo.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
 
+lucroOuPrejuizo(localStorage.getItem('saldo'));
+
+if (storage != null) {
         listaAtual.forEach(produto => {
-            var produtoDiv = montaLinha(produto);
-            var conteudo = document.querySelector(".extrato_conteudo");
-            conteudo.appendChild(produtoDiv);
-            var mensagem = document.getElementById("mensagem_extrato");
-            mensagem.classList.add("nao_existe");
-            contaSaldo();
-            lucroOuPrejuizo(window.localStorage.getItem('saldo'));
-            }
-        );        
-    }
+        var produtoDiv = montaLinha(produto);
+        var conteudo = document.querySelector(".extrato_conteudo");
+        conteudo.appendChild(produtoDiv);
+        var mensagem = document.getElementById("mensagem_extrato");
+        mensagem.classList.add("nao_existe");
+        }  
+    );                
 }
 
 //máscara de números no campo valor
@@ -43,28 +47,45 @@ var botaoAdicionar = document.querySelector(".formulario_compra_botao");
 
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
-
     var form = document.querySelector(".formulario_compra");
-
     var produto = obtemProdutoDoFormulario(form);
 
-    if(produto.nome.length != 0 && produto.valor != 0){
+    if(produto.nome.length != 0 && form.valor.value != 0){
 
         var produtoDiv = montaLinha(produto);
-
         var conteudo = document.querySelector(".extrato_conteudo");
-
         conteudo.appendChild(produtoDiv);
-
         adicionaStorage (produto, 'lista');
-
         form.reset();
 
         var mensagem = document.getElementById("mensagem_extrato");
         mensagem.classList.add("nao_existe");
+
+        const saldoRaw = localStorage.getItem('saldo');
+        var saldo = JSON.parse(saldoRaw);
+        if(produto.tipo == 'compra'){
+            var itemSaldo = produto.valor * 1;
+        } else {
+            var itemSaldo = produto.valor * -1;
+        }
+        var total = document.getElementById('extrato_resultado_total');
+
+        if(saldo === null) {
+            saldo = itemSaldo;
+            localStorage.setItem('saldo', saldo);
+            total.textContent = saldo.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+            } else {
+            saldo = saldo + itemSaldo;
+            localStorage.setItem('saldo', saldo);
+            total.textContent = saldo.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+            }
+        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
+
         } else {
             alert("Por favor, preencha todos os campos!")
         }
+
+      
     }
 )
 
@@ -83,49 +104,33 @@ function obtemProdutoDoFormulario(form){
 var botaoLimpar = document.querySelector("#limpa_dados");
 
 botaoLimpar.addEventListener("click", function(event){
-    localStorage.clear();
-    window.location.reload();
-    alert("Produtos apagados com sucesso!")
-    }
+    var resultadoLimpar = confirm("Você tem certeza que quer apagar todos os dados?")
+    if (resultadoLimpar == true) {
+        localStorage.clear();
+        window.location.reload();
+        alert("Produtos apagados com sucesso!")    
+    }else{
+        alert("Você desistiu de excluir todos os dados da lista!");
+    }    
+}
 )
 
 //adiciona elementos no local storage a partir do formulário
 function adicionaStorage (produto, lista){
-    const storage = window.localStorage.getItem(lista);
+    const storage = localStorage.getItem(lista);
 
     if(storage === null) {
         window.localStorage.setItem(lista, JSON.stringify([produto]));
-        contaSaldo();
-        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
     } else {
         const listaAtual = JSON.parse(storage);
  
         listaAtual.push(produto);
 
         window.localStorage.setItem(lista, JSON.stringify(listaAtual));
-        contaSaldo();
-        lucroOuPrejuizo(window.localStorage.getItem('saldo'));
     }
 }    
 
-//realiza conta do saldo e guarda info no local storage
-function contaSaldo(){
-    const storage = window.localStorage.getItem('lista');
-    const listaAtual = JSON.parse(storage);
-    var saldo = 0;
-    var total = document.getElementById('extrato_resultado_total');
-
-    for (var i = 0; i < listaAtual.length; i++){
-        if(listaAtual[i].tipo == 'compra'){
-            saldo = saldo + listaAtual[i].valor;
-        } else {
-            saldo = saldo - listaAtual[i].valor
-        }
-    }
-
-    localStorage.setItem('saldo', saldo);
-    total.textContent = saldo.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-}
+//confere se o saldo gerou lucro ou prejuízo
 
 function lucroOuPrejuizo(saldo){
     var lucroOuPrejuizo = document.getElementById('extrato_saldo');
