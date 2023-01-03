@@ -36,10 +36,23 @@ if (storage != null) {
 
 //máscara de números no campo valor
 function mascaraValor(evento) {
-    evento.preventDefault();
-    var selector = document.querySelector('#valor');
-    var mascara = new Inputmask("R$ 9{1,9}"+",99");
-    mascara.mask(selector);
+    const onlyDigits = evento.target.value
+          // Transformando a String digitada em uma Array
+    .split("")
+          // Filtrando a Array e pegando apenas o que for digito
+    .filter(s => /\d/.test(s))
+          //Juntando tudo na Array em uma String
+    .join("")
+          // Adicionado os zeros
+    .padStart(3, "0");
+    const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
+    evento.target.value = maskCurrency(digitsFloat);
+    }
+    function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+    return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency
+    }).format(valor)
 }
 
 //cria tabela a partir do formulário
